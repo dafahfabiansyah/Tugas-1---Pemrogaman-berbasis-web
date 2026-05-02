@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Sistem Bahan Ajar UT</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="login-page">
+
+  <div class="login-wrapper">
+    <div class="login-card">
+      <div class="login-header">
+        <div class="logo-circle">
+          <span>UT</span>
+        </div>
+        <h1>Universitas Terbuka</h1>
+        <p>Sistem Pemesanan Bahan Ajar</p>
+      </div>
+
+      <form id="formLogin" class="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Masukkan email Anda" required />
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-pass-wrapper">
+            <input type="password" id="password" placeholder="Masukkan password Anda" required />
+            <button type="button" id="togglePass" class="toggle-pass"><i data-lucide="eye"></i></button>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Login</button>
+        <div class="login-links">
+          <button type="button" class="link-btn" onclick="openModal('modalLupaPassword')">Lupa Password?</button>
+          <button type="button" class="link-btn" onclick="openModal('modalDaftar')">Daftar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Lupa Password -->
+  <div id="modalLupaPassword" class="modal-overlay" onclick="closeModalOutside(event, 'modalLupaPassword')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Lupa Password</h2>
+        <button class="modal-close" onclick="closeModal('modalLupaPassword')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Masukkan email Anda untuk menerima instruksi reset password.</p>
+        <div class="form-group">
+          <label for="emailReset">Email Terdaftar</label>
+          <input type="email" id="emailReset" placeholder="Masukkan email terdaftar" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalLupaPassword')">Batal</button>
+        <button class="btn btn-primary" onclick="kirimReset()">Kirim Reset</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Daftar -->
+  <div id="modalDaftar" class="modal-overlay" onclick="closeModalOutside(event, 'modalDaftar')">
+    <div class="modal-box">
+      <div class="modal-header">
+        <h2>Daftar Akun Baru</h2>
+        <button class="modal-close" onclick="closeModal('modalDaftar')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="regNama">Nama Lengkap</label>
+          <input type="text" id="regNama" placeholder="Masukkan nama lengkap" />
+        </div>
+        <div class="form-group">
+          <label for="regEmail">Email</label>
+          <input type="email" id="regEmail" placeholder="Masukkan email" />
+        </div>
+        <div class="form-group">
+          <label for="regUnit">Unit UT Daerah</label>
+          <input type="text" id="regUnit" placeholder="Contoh: UT Daerah Jakarta" />
+        </div>
+        <div class="form-group">
+          <label for="regPassword">Password</label>
+          <input type="password" id="regPassword" placeholder="Buat password" />
+        </div>
+        <div class="form-group">
+          <label for="regKonfirmasi">Konfirmasi Password</label>
+          <input type="password" id="regKonfirmasi" placeholder="Ulangi password" />
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalDaftar')">Batal</button>
+        <button class="btn btn-primary" onclick="daftarAkun()">Daftar</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
