@@ -144,20 +144,18 @@ function initTopbarUser() {
 // =============================================
 function toggleSidebar() {
   const sidebar  = document.getElementById("sidebar");
+  const overlay  = document.getElementById("sidebar-overlay");
   const content  = document.querySelector(".main-content");
   const topbar   = document.querySelector(".topbar");
 
   if (window.innerWidth <= 768) {
-    sidebar.classList.toggle("open");
+    const isOpen = sidebar.classList.toggle("open");
+    if (overlay) overlay.classList.toggle("active", isOpen);
   } else {
     sidebar.classList.toggle("collapsed");
-    if (sidebar.classList.contains("collapsed")) {
-      content.style.marginLeft = "60px";
-      topbar.style.left        = "60px";
-    } else {
-      content.style.marginLeft = "";
-      topbar.style.left        = "";
-    }
+    const isCollapsed = sidebar.classList.contains("collapsed");
+    content.style.marginLeft = isCollapsed ? "64px" : "";
+    topbar.style.left        = isCollapsed ? "64px" : "";
   }
 }
 

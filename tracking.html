@@ -20,17 +20,17 @@
     <nav class="sidebar-nav">
       <ul>
         <li class="nav-item">
-          <a href="dashboard.html"><span class="nav-icon"><i data-lucide="layout-dashboard"></i></span> Dashboard</a>
+          <a href="dashboard.html" data-label="Dashboard"><span class="nav-icon"><i data-lucide="layout-dashboard"></i></span> <span class="nav-label">Dashboard</span></a>
         </li>
         <li class="nav-item">
-          <a href="stok.html"><span class="nav-icon"><i data-lucide="book-open"></i></span> Informasi Bahan Ajar</a>
+          <a href="stok.html" data-label="Informasi Bahan Ajar"><span class="nav-icon"><i data-lucide="book-open"></i></span> <span class="nav-label">Informasi Bahan Ajar</span></a>
         </li>
         <li class="nav-item active">
-          <a href="tracking.html"><span class="nav-icon"><i data-lucide="truck"></i></span> Tracking Pengiriman</a>
+          <a href="tracking.html" data-label="Tracking Pengiriman"><span class="nav-icon"><i data-lucide="truck"></i></span> <span class="nav-label">Tracking Pengiriman</span></a>
         </li>
         <li class="nav-item has-sub">
-          <a href="#" onclick="toggleSubMenu(event, 'subLaporan')">
-            <span class="nav-icon"><i data-lucide="bar-chart-2"></i></span> Laporan
+          <a href="#" data-label="Laporan" onclick="toggleSubMenu(event, 'subLaporan')">
+            <span class="nav-icon"><i data-lucide="bar-chart-2"></i></span> <span class="nav-label">Laporan</span>
             <span class="arrow" id="arrowLaporan"><i data-lucide="chevron-down"></i></span>
           </a>
           <ul class="sub-menu" id="subLaporan">
@@ -39,7 +39,7 @@
           </ul>
         </li>
         <li class="nav-item">
-          <a href="dashboard.html"><span class="nav-icon"><i data-lucide="clock"></i></span> Histori Transaksi</a>
+          <a href="dashboard.html" data-label="Histori Transaksi"><span class="nav-icon"><i data-lucide="clock"></i></span> <span class="nav-label">Histori Transaksi</span></a>
         </li>
       </ul>
     </nav>
@@ -47,6 +47,7 @@
       <button class="btn-logout" onclick="logout()"><i data-lucide="log-out"></i> Logout</button>
     </div>
   </aside>
+  <div id="sidebar-overlay" onclick="toggleSidebar()"></div>
 
   <!-- Main Content -->
   <div class="main-content">
