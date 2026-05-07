@@ -305,11 +305,25 @@ function cariTracking() {
   document.getElementById("trNoDO").textContent         = data.nomorDO;
   document.getElementById("trNama").textContent         = data.nama;
   document.getElementById("trNIM").textContent          = data.paket;
-  document.getElementById("trAlamat").textContent       = data.ekspedisi;
   document.getElementById("trEkspedisi").textContent    = data.ekspedisi;
   document.getElementById("trTanggalKirim").textContent = formatTanggal(data.tanggalKirim);
   document.getElementById("trJenisPaket").textContent   = data.paket;
   document.getElementById("trTotal").textContent        = data.total;
+
+  // Preview bahan ajar
+  var buku = dataBahanAjar.find(function(b) { return b.kodeLokasi === data.paket; });
+  if (buku) {
+    document.getElementById("trCoverImg").src       = buku.cover;
+    document.getElementById("trCoverImg").alt       = buku.namaBarang;
+    document.getElementById("trNamaBuku").textContent = buku.namaBarang;
+    document.getElementById("trKodeBuku").textContent = buku.kodeBarang;
+    document.getElementById("trJenisBuku").textContent = buku.jenisBarang + " — Edisi " + buku.edisi;
+  } else {
+    document.getElementById("trCoverImg").src       = "";
+    document.getElementById("trNamaBuku").textContent = "Data tidak ditemukan";
+    document.getElementById("trKodeBuku").textContent = "-";
+    document.getElementById("trJenisBuku").textContent = "-";
+  }
 
   // Status badge
   const badge = document.getElementById("trStatusBadge");
